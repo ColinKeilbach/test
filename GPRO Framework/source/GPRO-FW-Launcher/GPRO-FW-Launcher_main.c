@@ -12,17 +12,18 @@ int main()
 
 	//Number guess game
 
-	int play = 1;
+	enum BOOL play = true;
 	do {
 		int testNumber = rand() % 50;
 		int guess = 0;
 		do {
-			printf("\n Guess the number (1-50): \n");
-			scanf("%d", &guess);
-			printf("\n You guessed: %s \n", numberTest(guess, testNumber));
-		} while (guess != test);
+			printf("\n Guess the number (0-50): \n");
+			scanf("%d%*c", &guess);
+			printf("\n You guessed: \n");
+			numberTest(guess, testNumber);
+		} while (guess != testNumber);
 
 		play = againTest();
 
-	} while (play == 1);
+	} while (play == true);
 }

@@ -1,7 +1,9 @@
 #pragma once
 
+enum BOOL{ false, true };
+
 int foo(int bar);
 
-char* numberTest(int guess, int test);
+void numberTest(int guess, int test);
 
-int againTest();
+enum BOOL againTest();

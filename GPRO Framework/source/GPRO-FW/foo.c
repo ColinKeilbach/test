@@ -1,43 +1,47 @@
 //Our foo function
 #include <stdio.h>
 #include <stdlib.h>
+#include "GPRO-FW/foo.h"
 
 int foo(int bar) {
 	return bar + 1;
 }
 
-char* numberTest(int guess, int test) {
-
-	//strings
-	char STRING_L[5] = "LOWER";
-	char STRING_C[7] = "CORRECT";
-	char STRING_H[6] = "HIGHER";
+void numberTest(int guess, int test) {
 
 	if (guess == test) {
-		return STRING_C;
+		printf(" CORRECT \n");
 	}
 	else if (guess < test) {
-		return STRING_L;
+		printf(" LOWER \n");
 	}
 	else if (guess > test) {
-		return STRING_H;
+		printf(" HIGHER \n");
 	}
 }
 
-int againTest() {
-	int i = 0;
-	while (i == 0) {
-		//Loops untill you give a correct input
-		char check = 'a';
-		printf("\n Do you want to play again? (Y/N): ");
-		scanf("%s", &check);
+enum BOOL againTest() {
+	enum BOOL output = true;
 
-		if (check == 'Y' || check == 'y') {
-			return 1;
-		}
-		else if (check == 'N' || check == 'n') {
-			return 0;
-		}
-		printf("\n Invalid input. \n");
+	char check = 'A';
+
+		printf("\n Do you want to play again? (Y/N): ");
+		scanf("%c%*c", &check);
+
+		switch (check) {
+		case 'Y':
+			output = true;
+			break;
+		case 'y':
+			output = true;
+			break;
+		case 'N':
+			output = false;
+			break;
+		case 'n':
+			output = false;
+			break;
 	}
+
+	return output;
 }
